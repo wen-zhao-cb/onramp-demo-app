@@ -8,6 +8,8 @@ import {
   SellOptionsResponse,
   SellQuoteRequest,
   SellQuoteResponse,
+  GenerateWalletResponse,
+  GenerateWalletRequest
 } from "./types";
 
 export async function generateSecureToken({
@@ -164,6 +166,26 @@ export async function generateSellQuote(request: SellQuoteRequest) {
     }
 
     const json: SellQuoteResponse = await response.json();
+    return json;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function generateWallet(request: GenerateWalletRequest) {
+  try {
+  console.log(`generateWallet`);  
+    const response = await fetch("/api/create-wallet-api", {
+      method: "POST",
+      body: JSON.stringify(request),
+    });
+    
+    if (!response.ok) {
+      console.log(await response.text());
+      throw new Error("Failed to create wallet");
+    }
+    
+    const json: GenerateWalletResponse = await response.json();
     return json;
   } catch (error) {
     throw error;

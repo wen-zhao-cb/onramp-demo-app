@@ -1,3 +1,5 @@
+import Decimal from "decimal.js";
+
 export type AggregatorInputParams = {
   quoteID: string;
   defaultAsset: string;
@@ -154,3 +156,12 @@ export type SellQuoteResponse = {
   sell_amount: { value: string; currency: string };
   quote_id: string;
 };
+
+export type GenerateWalletRequest = {
+  network_id: string;
+}
+export type GenerateWalletResponse = {
+  wallet_address: string;
+  network_id: string;
+  balance: string;
+}

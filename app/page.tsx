@@ -66,6 +66,9 @@ export default function Home() {
 
       <div className="flex w-full flex-col gap-5">
         <Tabs aria-label="Options">
+          <Tab key="wallet" title="Generate an Wallet for test">
+            <WalletBox />
+          </Tab>
           <Tab key="genToken" title="Generate Onramp URL">
             <SecureTokenBox />
           </Tab>
